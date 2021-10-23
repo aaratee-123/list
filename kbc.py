@@ -1,45 +1,81 @@
-year=int(input("enter the year"))
-month=int(input("enter the month"))
-day=int(input("enter the day"))
+question_list = [
+    "How many continents are there?",              # pehla question
+    "What is the capital of India?",            # doosra question
+    "NG mei kaun se course padhaya jaata hai?"    # teesra question
+]
 
-# if  year and (month==4 or month==6 or month==9 or month==11) and(day>=1 or year<=30):
-#     print(year,month ,day)
+options_list = [
+    #pehle question ke liye options
+    ["Four", "Nine", "Seven", "Eight"],
+    #second question ke liye options
+    ["Chandigarh", "Bhopal", "Chennai", "Delhi"],
+    #third question ke liye options
+    ["Software Engineering", "Counseling", "Tourism", "Agriculture"]
+]
 
-# elif year and (month==1 or month==3 or month==5 or month==7 or month==8 or month==10 or month==11)and (day>=1 or day<=31):
-#     print(year,month,day)
-month1=0
-if (year%4==0 or year%400==0):
-    year=True
-    month1=29
-    print("yes")
-else:
-    year=False
-    print("no")
-if month1 in [1,3,5,7,8,10,12] :
-    days=31
-elif month1 in [4,6,9,11]:
-    day=30
-a=(year,month,day+1)
-print("the next date is ",a)
+# har ek question ke liye, uski solution key (yeh index nahi hai)
+solution_list = [3, 4, 1] 
+answer_list=[
+    ["(1)four","(3)seven"],
+    ["(4)Delhi","(2)Bhopal"],
+    ["(4)Agricultue","(1)Software Engineering"]
+]
+print("kaun Banega codepati (KBC)")
+i=0
+s=0
+count=0
+while i<len(question_list):
+    print(question_list[i])
+    a=0
+    b=i
+    while a<len(options_list[i]):
+        k=options_list[b][a]
+        print(a+1,k)
+        a=a+1
+    num1=input("do you want 50 50 lifeline")
+    if num1=="yes":
+        print("50 50 lifeline")
+        if count<1:
+            print(answer_list[b])
+            num2=int(input("enter your answer"))
+            if num2==solution_list[i]:
+                s+=10000
+                print("your answer is correct")
+                print("you win Rs/",s)
+            else:
+                print("incorrect answer")
+                print("you can,t play again")
+                print("you win Rs/",s)
+                print("\U0001F629")
+                break
+            count+=1
+        else:
+            print("you already use lifeline :")
+            m=int(input("enter your answer :"))
+            if m==solution_list[i]:
+                print("congrats your answer is right")
+                s+=10000
+                print("you win Rs/",s)
+            else:
+                print("No chance")
+                print("youe answer is wrong")
+                print("you win",s)
+                break
+    else:
+        pass
+    k=int(input("enter your answer"))
+    if k==solution_list[i]:
+        print("right answer")
+        s+=10000
+        print("you win Rs/",s)
+    else:
+        print("no chance")
+        print("your answer is wrong")
+        print("you win Rs/",s)
+        print("\U0001F917")
 
-# user=input("enter the name")
-# i=0
-# k='_'
-# while i<len(user):
-#     j=0
-#     while j<1:
-#         print(user.upper()[i]+user.lower()[i]*(i),k*(i),end="")
-#         if i==0:
-#             print(k,end="")
-#         j=j+1
-#     i=i+1
-
-num_list=[1,2,3,4,5]
-d=dic={}
-# dic={}
-for i in num_list:
-    dic[i] = {}
-    dic = dic[i]
-print(d)
-
- 
+    i=i+1
+print("_congrulation you are a part of_KON BANAYGA CODEPATI__")
+print("you win Rs/",s)
+print("THANK YOU BEING PART OF KBC")
+print("\U0001F639")
